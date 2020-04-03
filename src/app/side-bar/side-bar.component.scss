@@ -1,18 +1,36 @@
 .sidebar-container{
     padding: 15px 10px;
-    min-width: 200px;
+    width: 260px;
     &::before{
         content: '';
         background-image: url(/assets/sidebar-4.jpg);
         position: absolute;
-        z-index: 1;
         opacity: 0.2;
         height: 100%;
         width: 100%;
         display: block;
+        z-index: -1;
         top: 0;
         left: 0;
         background-size: cover;
         background-position: 50%;   
     }
+    .mat-custom{
+        &-img{
+            width: 20px;
+            margin-right: 10px;
+        }
+        &-text{
+            text-transform: uppercase;
+            padding: 0 15px;
+            font-weight: 400;
+        }
+        &-btn-block{
+            width: 100%;
+        }
+    }
+    .menu-content{
+        margin-top: 10px;
+    }
+    
 }
