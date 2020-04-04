@@ -8,7 +8,7 @@ export class DashboardConstants {
             footerText: 'Tracked from Johns Hopkings',
             avatarIcon: 'local_hotel',
             title: 'Total Infected',
-            value: '1,099,622',
+            value: 'Loading...',
             avatarClass: 'mat-bg-orange'
         },
         {
@@ -16,7 +16,7 @@ export class DashboardConstants {
             footerText: 'Last update Apr 4, 2020',
             avatarIcon: 'sentiment_very_satisfied',
             title: 'Recovered',
-            value: '228,938',
+            value: 'Loading...',
             avatarClass: 'mat-bg-green'
         },
         {
@@ -24,7 +24,7 @@ export class DashboardConstants {
             footerText: 'Last update Apr 4, 2020',
             avatarIcon: 'mood_bad',
             title: 'Total Death',
-            value: '59,193',
+            value: 'Loading...',
             avatarClass: 'mat-bg-red'
         },
         {
@@ -32,7 +32,7 @@ export class DashboardConstants {
             footerText: '(total death)/ (total infected)',
             avatarIcon: 'airline_seat_flat',
             title: 'Death Rate',
-            value: '5.38%',
+            value: 'Loading...',
             avatarClass: 'mat-bg-gray'
         }
     ];

@@ -12,3 +12,7 @@
     overflow-y: auto;
     overflow-x: hidden;    
 }
+.custom-progress-bar{
+    position: fixed;
+    z-index: 999;
+}

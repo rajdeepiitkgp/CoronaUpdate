@@ -8,13 +8,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { CardSummaryComponent } from './card-summary/card-summary.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 const materialModules = [
   MatSidenavModule,
   MatDividerModule,
   MatButtonModule,
   MatIconModule,
   MatGridListModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressBarModule
 ];
 const nonMaterialModules = [
   FormsModule,
