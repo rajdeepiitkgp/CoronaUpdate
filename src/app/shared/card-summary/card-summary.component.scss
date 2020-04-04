@@ -1,5 +1,6 @@
 .custom-card{
     padding: 16px 25px;
+    width: 80%;
     &-avatar{
         color: #fff;
         border-radius: 5px;
@@ -14,6 +15,14 @@
         &-title{
             margin-right: -20px;
             text-align: right;
+            span{
+                &.title{
+                    font-size: 14px;
+                }
+                &.subtitle{
+                    font-size: 18px;
+                }
+            }
         }
     }
     &-footer{

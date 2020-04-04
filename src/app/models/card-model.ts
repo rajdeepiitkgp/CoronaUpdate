@@ -4,4 +4,5 @@ export interface CardModel {
     avatarIcon: string;
     avatarClass: string;
     title: string;
+    value: string;
 }
