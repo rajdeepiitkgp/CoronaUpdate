@@ -3,3 +3,11 @@
     width: 100% !important;
     overflow: hidden !important;
 }
+
+.parent-container{
+    padding: 10px 15px;
+    height: calc(100% - 20px);
+    width: calc(100% - 30px);
+    overflow-y: auto;
+    overflow-x: hidden;    
+}
