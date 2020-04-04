@@ -1,6 +1,6 @@
 .sidebar-container{
     padding: 15px 10px;
-    width: 260px;
+    width: 240px;
     &::before{
         content: '';
         background-image: url(/assets/sidebar-4.jpg);
@@ -23,12 +23,10 @@
         &-text{
             text-transform: uppercase;
             padding: 0 15px;
-            font-weight: 400;
         }
         &-btn-block{
             width: 100%;
             padding: 5px 0;
-            font-weight: 100;
             font-size: 14px;
             margin-bottom: 20px;
             mat-icon{

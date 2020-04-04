@@ -9,6 +9,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableListComponent } from './table-list/table-list.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { TableListComponent } from './table-list/table-list.component';
     NgxEchartsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
