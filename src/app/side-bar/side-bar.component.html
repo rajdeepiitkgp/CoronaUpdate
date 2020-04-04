@@ -1,14 +1,22 @@
 <div class="sidebar-container">
-    <a mat-flat-button class="mat-title mat-custom-text" routerLink="/">
+    <a class="mat-title mat-custom-text mat-custom-link" routerLink="/">
         <img src="/assets/corona.png" alt="img" class="mat-custom-img"> Corona Live...
     </a>
-    <mat-divider></mat-divider>
+    <mat-divider class="mat-top-space"></mat-divider>
     <div class="menu-content">
-        <a mat-raised-button color="warn" class="mat-custom-btn-block" routerLink="/dashboard" href="#">
+        <a routerLinkActive #link1="routerLinkActive" mat-button [ngClass]="{'mat-raised-button':(link1?.isActive)}"
+            class="mat-custom-btn-block" [color]="(link1?.isActive)?'warn':undefined" routerLink="/dashboard">
             <mat-icon>
                 dashboard
             </mat-icon>
             Live Update
+        </a>
+        <a routerLinkActive #link2="routerLinkActive" mat-button [ngClass]="{'mat-raised-button':(link2?.isActive)}"
+            class="mat-custom-btn-block" [color]="(link2?.isActive)?'warn':undefined" routerLink="/table-list">
+            <mat-icon>
+                content_paste
+            </mat-icon>
+            Table View
         </a>
     </div>
 </div>
