@@ -4,15 +4,15 @@
     </a>
     <mat-divider class="mat-top-space"></mat-divider>
     <div class="menu-content">
-        <a routerLinkActive #link1="routerLinkActive" mat-button [ngClass]="{'mat-raised-button':(link1?.isActive)}"
-            class="mat-custom-btn-block" [color]="(link1?.isActive)?'warn':undefined" routerLink="/dashboard">
+        <a mat-button routerLinkActive="mat-raised-button mat-warn" class="mat-custom-btn-block"
+            routerLink="/dashboard">
             <mat-icon>
                 dashboard
             </mat-icon>
             Live Update
         </a>
-        <a routerLinkActive #link2="routerLinkActive" mat-button [ngClass]="{'mat-raised-button':(link2?.isActive)}"
-            class="mat-custom-btn-block" [color]="(link2?.isActive)?'warn':undefined" routerLink="/table-list">
+        <a mat-button routerLinkActive="mat-raised-button mat-warn" class="mat-custom-btn-block"
+            routerLink="/table-list">
             <mat-icon>
                 content_paste
             </mat-icon>
