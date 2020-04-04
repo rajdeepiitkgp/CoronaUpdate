@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
 import { EventAggrigatorService } from './service/event-aggrigator.service';
 
 @Component({
@@ -6,14 +6,18 @@ import { EventAggrigatorService } from './service/event-aggrigator.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterContentChecked {
   title = 'CoronaUpdate';
   public progressFlag = false;
   constructor(
-    private eventAggSrvc: EventAggrigatorService
+    private eventAggSrvc: EventAggrigatorService,
+    private cdr: ChangeDetectorRef
   ) {
     this.eventAggSrvc.spinnerFlagChanged$.subscribe(value => {
       this.progressFlag = value;
     });
+  }
+  ngAfterContentChecked(): void {
+    this.cdr.detectChanges();
   }
 }

@@ -13,7 +13,7 @@ export class DashboardConstants {
         },
         {
             footerIcon: 'date_range',
-            footerText: 'Last update Apr 4, 2020',
+            footerText: 'Last update ',
             avatarIcon: 'sentiment_very_satisfied',
             title: 'Recovered',
             value: 'Loading...',
@@ -21,7 +21,7 @@ export class DashboardConstants {
         },
         {
             footerIcon: 'date_range',
-            footerText: 'Last update Apr 4, 2020',
+            footerText: 'Last update ',
             avatarIcon: 'mood_bad',
             title: 'Total Death',
             value: 'Loading...',

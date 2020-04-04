@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardModel } from '../models/card-model';
 import { DashboardConstants } from './dashboard.constants';
 import { SummaryService } from '../service/summary.service';
-import { EventAggrigatorService } from '../service/event-aggrigator.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private summarySrvc: SummaryService,
-    private eventAggSrvc: EventAggrigatorService
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
@@ -24,16 +24,18 @@ export class DashboardComponent implements OnInit {
   }
 
   public fetchSummaryData() {
-    this.eventAggSrvc.setSpinnerFlag(true);
     this.summarySrvc.fetchAllData().subscribe(result => {
       const total = result.cases as number;
       const deaths = result.deaths as number;
       const deathRate = (deaths / total) * 100;
+      const date = new Date(result.updated);
+      const formattedDate = 'Last update ' + this.datePipe.transform(date, 'MMM d, yyyy');
       this.cardObjectArray[0].value = this.formatNumber(total);
       this.cardObjectArray[1].value = this.formatNumber(result.recovered as number);
+      this.cardObjectArray[1].footerText = formattedDate;
       this.cardObjectArray[2].value = this.formatNumber(deaths);
+      this.cardObjectArray[2].footerText = formattedDate;
       this.cardObjectArray[3].value = this.formatNumber(deathRate) + ' %';
-      this.eventAggSrvc.setSpinnerFlag(false);
     });
   }
 
