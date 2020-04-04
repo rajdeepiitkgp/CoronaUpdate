@@ -1,0 +1,32 @@
+.custom-card{
+    padding: 16px 25px;
+    &-avatar{
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: -30px;
+        margin-right: 20px;
+        &-icon{
+            font-size: 30px;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        &-title{
+            margin-right: -20px;
+            text-align: right;
+        }
+    }
+    &-footer{
+        font-size: 13px;
+        padding: 10px 7px;
+        color: 	#968080;
+        display: block;
+        &-icon{
+            font-size: 16px;
+            display: inline;
+        }
+        &-text{
+            display: inline;
+        }
+    }
+}

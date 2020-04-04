@@ -1,1 +1,20 @@
-<mat-card>Simple card</mat-card>
+<mat-card class="custom-card">
+    <mat-card-header>
+        <div mat-card-avatar class="custom-card-avatar mat-elevation-z4" [ngClass]="cardObject?.avatarClass" >
+            <mat-icon class="custom-card-avatar-icon">
+                {{cardObject?.avatarIcon}}
+            </mat-icon>
+        </div>
+        <mat-card-subtitle class="custom-card-avatar-title">{{cardObject?.title}}</mat-card-subtitle>
+        <mat-card-title class="custom-card-avatar-title">1,099,622</mat-card-title>
+    </mat-card-header>
+    <mat-divider class="mat-top-space"></mat-divider>
+    <mat-card-footer class="custom-card-footer">
+        <mat-icon class="custom-card-footer-icon">
+            {{cardObject?.footerIcon}}
+        </mat-icon>
+        <span class="custom-card-footer-text">
+            {{cardObject?.footerText}}
+        </span>
+    </mat-card-footer>
+</mat-card>

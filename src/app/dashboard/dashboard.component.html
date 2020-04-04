@@ -1,12 +1,10 @@
-<div class="mat-display-1">
+<div class="mat-display-1 dashboard-title">
     {{title}}
 </div>
 
 <mat-grid-list cols="4" gutterSize="20px">
-    <mat-grid-tile>
-        <app-card-summary></app-card-summary>
+    <mat-grid-tile *ngFor="let item of cardObjectArray">
+        <app-card-summary [cardObject]="item"></app-card-summary>
     </mat-grid-tile>
-    <mat-grid-tile>
-        <app-card-summary></app-card-summary>
-    </mat-grid-tile>
+
 </mat-grid-list>

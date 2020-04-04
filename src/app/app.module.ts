@@ -10,7 +10,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +22,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     NgxEchartsModule,
     SharedModule
   ],

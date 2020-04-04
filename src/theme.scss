@@ -24,3 +24,19 @@ $CoronaUpdate-theme: mat-light-theme($CoronaUpdate-primary, $CoronaUpdate-accent
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($CoronaUpdate-theme);
+
+.mat-bg{
+    &-red{
+        background-color: mat-color(mat-palette($mat-red));
+    }
+    &-orange{
+        background-color: mat-color(mat-palette($mat-orange));
+    }
+    &-green{
+        background-color: mat-color(mat-palette($mat-green));
+    }
+    &-gray{
+        background-color: mat-color(mat-palette($mat-gray));
+    }
+    
+}
