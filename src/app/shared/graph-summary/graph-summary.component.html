@@ -1,7 +1,17 @@
 <mat-card class="custom-card">
     <mat-card-content>
-        <div echarts [options]="options" [loading]="!dataLoaded" theme="macarons" class="demo-chart">
-        </div>
+        <ng-container *ngIf="dataLoaded; then showGraph; else hideGraph"></ng-container>
+        <ng-template #showGraph>
+            <div echarts [options]="options" theme="macarons" class="demo-chart">
+            </div>
+        </ng-template>
+        <ng-template #hideGraph>
+            <div class=" demo-chart spinner-container">
+                <mat-spinner color='primary'></mat-spinner>
+            </div>
+            
+        </ng-template>
+        
     </mat-card-content>
     <mat-card-footer class="custom-card-footer">
         {{model?.footerText}}

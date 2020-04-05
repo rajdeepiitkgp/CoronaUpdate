@@ -11,7 +11,7 @@ export class GraphSummaryComponent implements OnInit, OnChanges {
 
   @Input() dataLoaded: boolean;
   @Input() model: GraphModel;
-  public options: EChartOption;
+  public options: EChartOption = {};
 
   constructor() { }
 
@@ -38,7 +38,22 @@ export class GraphSummaryComponent implements OnInit, OnChanges {
     tempOptions.legend.data = [this.model.yTitle];
     tempOptions.legend.align = 'left';
     tempOptions.xAxis = { data: this.model.xAxisData };
-    tempOptions.yAxis = { axisLabel: { formatter: (val) => (val / 1000) + 'K' } };
+    tempOptions.yAxis = {
+      axisLabel: {
+        formatter: (val) => {
+          if (val < 1000) {
+            return val;
+          } else {
+            const result = (val / 1000);
+            if (result >= 1000) {
+              return (result / 1000) + 'M';
+            } else {
+              return result + 'K';
+            }
+          }
+        }
+      }
+    };
     tempOptions.series = [{
       name: this.model.yTitle,
       type: 'bar',
@@ -62,7 +77,22 @@ export class GraphSummaryComponent implements OnInit, OnChanges {
     tempOptions.legend.data = [this.model.y1Title, this.model.y2Title];
     tempOptions.legend.align = 'left';
     tempOptions.xAxis = { data: this.model.xAxisData };
-    tempOptions.yAxis = { axisLabel: { formatter: (val) => (val / 1000) + 'K' } };
+    tempOptions.yAxis = {
+      axisLabel: {
+        formatter: (val) => {
+          if (val < 1000) {
+            return val;
+          } else {
+            const result = (val / 1000);
+            if (result >= 1000) {
+              return (result / 1000) + 'M';
+            } else {
+              return result + 'K';
+            }
+          }
+        }
+      }
+    };
     tempOptions.series = [
       {
         name: this.model.y1Title,
