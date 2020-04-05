@@ -8,4 +8,7 @@ export interface GraphModel {
     y2AxisData: number[];
     y1Title: string;
     y2Title: string;
+    color: string;
+    color1: string;
+    color2: string;
 }

@@ -1,64 +1,90 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { GraphModel } from 'src/app/models/graph-model';
+import { EChartOption } from 'echarts';
 
 @Component({
   selector: 'app-graph-summary',
   templateUrl: './graph-summary.component.html',
   styleUrls: ['./graph-summary.component.scss']
 })
-export class GraphSummaryComponent implements OnInit {
+export class GraphSummaryComponent implements OnInit, OnChanges {
+
+  @Input() dataLoaded: boolean;
+  @Input() model: GraphModel;
+  public options: EChartOption;
 
   constructor() { }
 
-  @Input() dataLoaded: boolean;
-  public options;
-
   ngOnInit(): void {
-    const xAxisData = [];
-    const data1 = [];
-    const data2 = [];
-
-    for (let i = 0; i < 100; i++) {
-      xAxisData.push('category' + i);
-      data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
-      data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
+  }
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
+    if (changes.dataLoaded.currentValue) {
+      if (this.model.isHistogram) {
+        this.setHistogram();
+      } else {
+        this.setDailyChange();
+      }
     }
+  }
 
-    this.options = {
-      legend: {
-        data: ['bar', 'bar2'],
-        align: 'left'
-      },
-      tooltip: {},
-      xAxis: {
-        data: xAxisData,
-        silent: false,
-        splitLine: {
-          show: false
-        }
-      },
-      yAxis: {
-      },
-      series: [{
-        name: 'bar',
-        type: 'bar',
-        data: data1,
-        color:'#f00',
-        animationDelay: (idx) => {
-          return idx * 10;
-        }
-      }, {
-        name: 'bar2',
-        type: 'bar',
-        data: data2,
-        animationDelay: (idx) => {
-          return idx * 10 + 100;
-        }
-      }],
+  public setHistogram() {
+    const tempOptions: EChartOption = {
       animationEasing: 'elasticOut',
       animationDelayUpdate: (idx) => {
         return idx * 5;
       }
     };
+    tempOptions.legend = {};
+    tempOptions.legend.data = [this.model.yTitle];
+    tempOptions.legend.align = 'left';
+    tempOptions.xAxis = { data: this.model.xAxisData };
+    tempOptions.yAxis = { axisLabel: { formatter: (val) => (val / 1000) + 'K' } };
+    tempOptions.series = [{
+      name: this.model.yTitle,
+      type: 'bar',
+      data: this.model.yAxisData,
+      animationDelay: (idx) => {
+        return idx * 10;
+      }
+    }];
+    tempOptions.tooltip = {};
+    tempOptions.color = [this.model.color];
+    this.options = tempOptions;
+  }
+  public setDailyChange() {
+    const tempOptions: EChartOption = {
+      animationEasing: 'elasticOut',
+      animationDelayUpdate: (idx) => {
+        return idx * 5;
+      }
+    };
+    tempOptions.legend = {};
+    tempOptions.legend.data = [this.model.y1Title, this.model.y2Title];
+    tempOptions.legend.align = 'left';
+    tempOptions.xAxis = { data: this.model.xAxisData };
+    tempOptions.yAxis = { axisLabel: { formatter: (val) => (val / 1000) + 'K' } };
+    tempOptions.series = [
+      {
+        name: this.model.y1Title,
+        type: 'line',
+        data: this.model.y1AxisData,
+        animationDelay: (idx) => {
+          return idx * 10;
+        }
+      },
+      {
+        name: this.model.y2Title,
+        type: 'line',
+        data: this.model.y2AxisData,
+        animationDelay: (idx) => {
+          return (idx * 10) + 100;
+        }
+      }
+    ];
+    tempOptions.tooltip = { trigger: 'axis' };
+    tempOptions.color = [this.model.color1, this.model.color2];
+    this.options = tempOptions;
+
   }
 
 }

@@ -43,14 +43,17 @@ export class DashboardConstants {
     ];
 
     public static demoCardModel: GraphModel = {
-        footerText: '',
+        footerText: 'Loading...',
         xAxisData: [],
         isHistogram: false,
         yAxisData: [],
-        yTitle: '',
+        yTitle: 'Loading...',
         y1AxisData: [],
         y2AxisData: [],
-        y1Title: '',
-        y2Title: ''
+        y1Title: 'Loading...',
+        y2Title: 'Loading...',
+        color: '',
+        color1: '#ff9800',
+        color2: '#f44336'
     };
 }

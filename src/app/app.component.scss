@@ -17,3 +17,8 @@
     position: fixed;
     z-index: 999;
 }
+@media (max-width: 768px){
+    .hide-sm{
+        display: none;
+    }
+}

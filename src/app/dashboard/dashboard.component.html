@@ -1,18 +1,14 @@
-
-
-
 <div class="summary-container">
     <div class="summary-content" *ngFor="let item of cardObjectArray">
         <app-card-summary [cardObject]="item"></app-card-summary>
     </div>
     <div class="summary-graph">
-        <app-graph-summary [dataLoaded]='dataLoaded'></app-graph-summary>
+        <app-graph-summary [dataLoaded]='dataLoaded' [model]='infectedModel'></app-graph-summary>
     </div>
     <div class="summary-graph">
-        <app-graph-summary [dataLoaded]='dataLoaded'></app-graph-summary>
+        <app-graph-summary [dataLoaded]='dataLoaded' [model]='deathModel'></app-graph-summary>
     </div>
     <div class="summary-daily">
-        <app-graph-summary [dataLoaded]='dataLoaded'></app-graph-summary>
+        <app-graph-summary [dataLoaded]='dataLoaded' [model]='dailyModel'></app-graph-summary>
     </div>
 </div>
-

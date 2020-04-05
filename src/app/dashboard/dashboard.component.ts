@@ -4,6 +4,7 @@ import { DashboardConstants } from './dashboard.constants';
 import { SummaryService } from '../service/summary.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin, Subscription } from 'rxjs';
+import { GraphModel } from '../models/graph-model';
 
 
 @Component({
@@ -21,10 +22,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private diedDelta: number[] = [0];
   public dataLoaded: boolean;
   private watcher: Subscription;
+  public infectedModel: GraphModel = { ...DashboardConstants.demoCardModel };
+  public deathModel: GraphModel = { ...DashboardConstants.demoCardModel };
+  public dailyModel: GraphModel = { ...DashboardConstants.demoCardModel };
+
   constructor(
     private summarySrvc: SummaryService,
     private datePipe: DatePipe
-  ) { }
+  ) {
+    this.setModels();
+  }
 
   ngOnDestroy(): void {
     this.watcher.unsubscribe();
@@ -77,13 +84,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   public setDailyData() {
-    console.log('date', this.dateArray);
-    console.log('infected', this.infected);
-    console.log('died', this.died);
-    console.log('infected delta', this.infectedDelta);
-    console.log('died delta', this.diedDelta);
-
-
+    this.infectedModel.xAxisData = this.dateArray;
+    this.infectedModel.yAxisData = this.infected;
+    this.deathModel.xAxisData = this.dateArray;
+    this.deathModel.yAxisData = this.died;
+    this.dailyModel.xAxisData = this.dateArray;
+    this.dailyModel.y1AxisData = this.infectedDelta;
+    this.dailyModel.y2AxisData = this.diedDelta;
   }
 
   public formatNumber(value: number): string {
@@ -91,4 +98,27 @@ export class DashboardComponent implements OnInit, OnDestroy {
     return result as string;
   }
 
+  public setModels() {
+    this.setInfectedModel();
+    this.setDeathModel();
+    this.setDailyModel();
+  }
+  public setInfectedModel() {
+    this.infectedModel.footerText = 'Infected people history';
+    this.infectedModel.color = '#ff9800';
+    this.infectedModel.isHistogram = true;
+    this.infectedModel.yTitle = 'Infected Histogram';
+  }
+  public setDeathModel() {
+    this.deathModel.footerText = 'Deaths history';
+    this.deathModel.color = '#f44336';
+    this.deathModel.isHistogram = true;
+    this.deathModel.yTitle = 'Death Histogram';
+  }
+  public setDailyModel() {
+    this.dailyModel.footerText = 'Daily changes';
+    this.dailyModel.isHistogram = false;
+    this.dailyModel.y1Title = 'Rate of change for infected people';
+    this.dailyModel.y2Title = 'Rate of change for death people';
+  }
 }
