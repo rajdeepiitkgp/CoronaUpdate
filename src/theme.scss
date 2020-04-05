@@ -11,8 +11,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$CoronaUpdate-primary: mat-palette($mat-orange);
-$CoronaUpdate-accent: mat-palette($mat-purple, A200, A100, A400);
+$CoronaUpdate-primary: mat-palette($mat-purple, A200, A100, A400);
+$CoronaUpdate-accent: mat-palette($mat-orange, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $CoronaUpdate-warn: mat-palette($mat-red);
@@ -37,6 +37,9 @@ $CoronaUpdate-theme: mat-light-theme($CoronaUpdate-primary, $CoronaUpdate-accent
     }
     &-gray{
         background-color: mat-color(mat-palette($mat-gray));
+    }
+    &-light-blue{
+        background-color: mat-color(mat-palette($mat-light-blue));
     }
     
 }

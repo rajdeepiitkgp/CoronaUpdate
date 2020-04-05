@@ -12,4 +12,6 @@ export class TableListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public applyFilter(params){}
+
 }

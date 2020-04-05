@@ -1,0 +1,24 @@
+.custom-card{
+    &-header{
+        justify-content: center;
+    }
+    &-avatar{
+        color: #fff;
+        border-radius: 5px;
+        padding: 20px 30px;
+        margin-top: -45px;
+        margin-left: 10px;
+        flex-grow: 1;
+        height: auto;
+        &-subtitle{
+            margin-bottom: 0;
+            color: #f9fff8;
+        }
+    }
+    &-content{
+        margin-top: 10px;
+        .custom-input{
+            width: 100%;
+        }
+    }
+}

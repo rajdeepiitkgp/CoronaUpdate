@@ -11,6 +11,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { GraphSummaryComponent } from './graph-summary/graph-summary.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 const materialModules = [
   MatSidenavModule,
   MatDividerModule,
@@ -18,7 +21,10 @@ const materialModules = [
   MatIconModule,
   MatCardModule,
   MatProgressBarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatFormFieldModule,
+  MatInputModule
 ];
 const nonMaterialModules = [
   FormsModule,

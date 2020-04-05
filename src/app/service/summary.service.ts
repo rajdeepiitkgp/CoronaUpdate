@@ -20,4 +20,9 @@ export class SummaryService {
     const serviceUrl = 'https://covid19.mathdro.id/api/daily';
     return this.http.get(serviceUrl);
   }
+
+  public fetchCountryData(): Observable<any>{
+    const serviceUrl = 'https://corona.lmao.ninja/countries';
+    return this.http.get(serviceUrl);
+  }
 }
