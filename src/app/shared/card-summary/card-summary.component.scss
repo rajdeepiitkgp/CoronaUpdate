@@ -1,6 +1,6 @@
 .custom-card{
     padding: 16px 25px;
-    width: 80%;
+    width: 85%;
     &-avatar{
         color: #fff;
         border-radius: 5px;
@@ -37,5 +37,11 @@
         &-text{
             display: inline;
         }
+    }
+}
+
+@media (min-width: 768px){
+    .custom-card{
+        width: 70%;
     }
 }

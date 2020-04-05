@@ -5,4 +5,5 @@ export interface CardModel {
     avatarClass: string;
     title: string;
     value: string;
+    colspan: number;
 }

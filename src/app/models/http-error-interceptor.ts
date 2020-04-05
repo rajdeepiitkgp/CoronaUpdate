@@ -4,7 +4,8 @@ import {
     HttpInterceptor,
     HttpHandler,
     HttpRequest,
-    HttpErrorResponse
+    HttpErrorResponse,
+    HttpResponse
 } from '@angular/common/http';
 import { retry, catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
@@ -19,8 +20,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.eventAggSrvc.setSpinnerFlag(true);
         return next.handle(req).pipe(
-            tap(() => {
-                this.eventAggSrvc.setSpinnerFlag(false);
+            tap((response: HttpResponse<any>) => {
+                if (response.ok) {
+                    this.eventAggSrvc.setSpinnerFlag(false);
+                }
             }),
             retry(1),
             catchError((error: HttpErrorResponse) => {

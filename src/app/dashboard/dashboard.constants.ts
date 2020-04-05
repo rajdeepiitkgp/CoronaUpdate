@@ -9,6 +9,7 @@ export class DashboardConstants {
             avatarIcon: 'local_hotel',
             title: 'Total Infected',
             value: 'Loading...',
+            colspan: 1,
             avatarClass: 'mat-bg-orange'
         },
         {
@@ -17,6 +18,7 @@ export class DashboardConstants {
             avatarIcon: 'sentiment_very_satisfied',
             title: 'Recovered',
             value: 'Loading...',
+            colspan: 1,
             avatarClass: 'mat-bg-green'
         },
         {
@@ -25,6 +27,7 @@ export class DashboardConstants {
             avatarIcon: 'mood_bad',
             title: 'Total Death',
             value: 'Loading...',
+            colspan: 1,
             avatarClass: 'mat-bg-red'
         },
         {
@@ -33,6 +36,7 @@ export class DashboardConstants {
             avatarIcon: 'airline_seat_flat',
             title: 'Death Rate',
             value: 'Loading...',
+            colspan: 1,
             avatarClass: 'mat-bg-gray'
         }
     ];

@@ -4,6 +4,7 @@ import { DashboardConstants } from './dashboard.constants';
 import { SummaryService } from '../service/summary.service';
 import { DatePipe } from '@angular/common';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,7 +14,6 @@ export class DashboardComponent implements OnInit {
 
   public title = 'Dashboard';
   public cardObjectArray: CardModel[] = DashboardConstants.cardObjectArray.map(status => ({ ...status }));
-
   constructor(
     private summarySrvc: SummaryService,
     private datePipe: DatePipe

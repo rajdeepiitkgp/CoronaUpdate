@@ -9,7 +9,6 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './models/http-error-interceptor';
 @NgModule({
@@ -24,7 +23,6 @@ import { HttpErrorInterceptor } from './models/http-error-interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FlexLayoutModule,
     NgxEchartsModule,
     SharedModule
   ],

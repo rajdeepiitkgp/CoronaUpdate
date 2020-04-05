@@ -4,14 +4,15 @@
     overflow: hidden !important;
 }
 
-.parent-container{
-    padding: 20px;
-    background-color: #eee;
+.parent-container{   
     height: calc(100% - 40px);
     width: calc(100% - 40px);
+    padding: 20px;
     overflow-y: auto;
-    overflow-x: hidden;    
+    overflow-x: hidden;
+    background-color: #eee;
 }
+
 .custom-progress-bar{
     position: fixed;
     z-index: 999;
