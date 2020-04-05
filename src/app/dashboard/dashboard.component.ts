@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CardModel } from '../models/card-model';
 import { DashboardConstants } from './dashboard.constants';
 import { SummaryService } from '../service/summary.service';
 import { DatePipe } from '@angular/common';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,9 +11,8 @@ import { forkJoin } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
-  public title = 'Dashboard';
   public cardObjectArray: CardModel[] = DashboardConstants.cardObjectArray.map(status => ({ ...status }));
   private dateArray: string[] = [];
   private infected: number[] = [];
@@ -21,10 +20,15 @@ export class DashboardComponent implements OnInit {
   private infectedDelta: number[] = [0];
   private diedDelta: number[] = [0];
   public dataLoaded: boolean;
+  private watcher: Subscription;
   constructor(
     private summarySrvc: SummaryService,
     private datePipe: DatePipe
   ) { }
+
+  ngOnDestroy(): void {
+    this.watcher.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.initializeSerive();
@@ -34,7 +38,7 @@ export class DashboardComponent implements OnInit {
     const summaryOrb = this.summarySrvc.fetchSummaryData();
     const dailyOrb = this.summarySrvc.fetchDailyData();
     this.dataLoaded = false;
-    forkJoin([summaryOrb, dailyOrb]).subscribe(([summaryData, dailyData]) => {
+    this.watcher = forkJoin([summaryOrb, dailyOrb]).subscribe(([summaryData, dailyData]) => {
       this.processSummaryData(summaryData);
       this.processDailyData(dailyData);
       this.dataLoaded = true;

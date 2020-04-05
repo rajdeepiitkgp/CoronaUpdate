@@ -7,7 +7,7 @@ import { EventAggrigatorService } from './service/event-aggrigator.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterContentChecked {
-  title = 'CoronaUpdate';
+  public title = 'Dashboard';
   public progressFlag = false;
   constructor(
     private eventAggSrvc: EventAggrigatorService,

@@ -42,6 +42,7 @@ export class GraphSummaryComponent implements OnInit {
         name: 'bar',
         type: 'bar',
         data: data1,
+        color:'#f00',
         animationDelay: (idx) => {
           return idx * 10;
         }
