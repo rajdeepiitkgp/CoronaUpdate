@@ -11,8 +11,13 @@ export class SummaryService {
     private http: HttpClient
   ) { }
 
-  public fetchAllData(): Observable<any> {
+  public fetchSummaryData(): Observable<any> {
     const serviceUrl = 'https://corona.lmao.ninja/all';
+    return this.http.get(serviceUrl);
+  }
+
+  public fetchDailyData(): Observable<any> {
+    const serviceUrl = 'https://covid19.mathdro.id/api/daily';
     return this.http.get(serviceUrl);
   }
 }

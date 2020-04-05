@@ -1,4 +1,5 @@
 import { CardModel } from '../models/card-model';
+import { GraphModel } from '../models/graph-model';
 
 export class DashboardConstants {
 
@@ -40,4 +41,16 @@ export class DashboardConstants {
             avatarClass: 'mat-bg-gray'
         }
     ];
+
+    public static demoCardModel: GraphModel = {
+        footerText: '',
+        xAxisData: [],
+        isHistogram: false,
+        yAxisData: [],
+        yTitle: '',
+        y1AxisData: [],
+        y2AxisData: [],
+        y1Title: '',
+        y2Title: ''
+    };
 }
