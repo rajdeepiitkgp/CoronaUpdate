@@ -14,6 +14,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 const materialModules = [
   MatSidenavModule,
   MatDividerModule,
@@ -24,7 +26,9 @@ const materialModules = [
   MatProgressSpinnerModule,
   MatTableModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatPaginatorModule,
+  MatSortModule
 ];
 const nonMaterialModules = [
   FormsModule,
