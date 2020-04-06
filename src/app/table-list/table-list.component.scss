@@ -14,6 +14,10 @@
             color: #f9fff8 !important;
         }
     }
+    &-table-container{
+        width: 100%;
+        overflow-x: auto;
+    }
     &-content{
         margin-top: 10px;
         .custom-input{
@@ -23,7 +27,8 @@
 }
 .custom-table{
     width: 100%;
-    overflow-x: auto;
+    min-width: 850px;
+    
     .table{
         &-title{
             font-weight: 400 !important;

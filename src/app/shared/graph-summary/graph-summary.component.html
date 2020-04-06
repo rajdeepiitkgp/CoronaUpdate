@@ -2,16 +2,18 @@
     <mat-card-content>
         <ng-container *ngIf="dataLoaded; then showGraph; else hideGraph"></ng-container>
         <ng-template #showGraph>
-            <div echarts [options]="options" theme="macarons" class="demo-chart">
+            <div class="graph-container">
+                <div echarts [options]="options" theme="macarons" class="demo-chart graph-content">
+                </div>
             </div>
         </ng-template>
         <ng-template #hideGraph>
             <div class=" demo-chart spinner-container">
                 <mat-spinner color='accent'></mat-spinner>
             </div>
-            
+
         </ng-template>
-        
+
     </mat-card-content>
     <mat-card-footer class="custom-card-footer">
         {{model?.footerText}}

@@ -16,7 +16,7 @@ export class TableListComponent implements OnInit, OnDestroy {
   private watcher: Subscription;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   public displayedColumns: any[];
-  public searchKey: string = null;
+  public searchKey = '';
 
   constructor(
     private summarySrvc: SummaryService
@@ -66,7 +66,7 @@ export class TableListComponent implements OnInit, OnDestroy {
   }
 
   public onSearchClear() {
-    this.searchKey = null;
+    this.searchKey = '';
     this.applyFilter();
   }
 
