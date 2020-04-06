@@ -4,9 +4,12 @@
   <mat-sidenav mode="side" opened class="mat-elevation-z4 mobile-hide">
     <app-side-bar></app-side-bar>
   </mat-sidenav>
+  <mat-sidenav mode="push" [(opened)]="opened" position="end" class="mobile-show">
+    <app-side-bar></app-side-bar>
+  </mat-sidenav>
   <mat-sidenav-content>
     <div class="parent-container">  
-      <app-top-navbar (emitOpenCloseSideBar)="openCloseSideBar($event)"></app-top-navbar>
+      <app-top-navbar (emitOpenCloseSideBar)="openCloseSideBar($event)" [parentState]='opened'></app-top-navbar>
       <div class="child-container">
         <router-outlet></router-outlet>
       </div>    
