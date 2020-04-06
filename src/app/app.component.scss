@@ -5,12 +5,14 @@
 }
 
 .parent-container{   
-    height: calc(100% - 40px);
-    width: calc(100% - 40px);
-    padding: 20px;
+    height:100%;
+    width:100%;
     overflow-y: auto;
     overflow-x: hidden;
     background-color: #eee;
+    .child-container{
+        padding: 20px;
+    }
 }
 
 .custom-progress-bar{

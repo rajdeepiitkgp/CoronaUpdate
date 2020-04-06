@@ -9,6 +9,6 @@
         <a mat-mini-fab href="https://github.com/rajdeepiitkgp/CoronaUpdate" target="_blank" color="primary" class="mobile-show btn-space">
             <mat-icon svgIcon="gitHub" aria-hidden="false" aria-label="Github Repo"></mat-icon>
         </a>
-        <button mat-icon-button color="primary" class="mobile-show" > <mat-icon>menu</mat-icon></button>
+        <button mat-icon-button color="primary" class="mobile-show" (click)="openSidebar()" > <mat-icon>{{iconTrigger}}</mat-icon></button>
     </mat-toolbar>
 </div>

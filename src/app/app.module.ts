@@ -11,13 +11,15 @@ import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/commo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './models/http-error-interceptor';
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     DashboardComponent,
     TableListComponent,
-    TopNavbarComponent
+    TopNavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

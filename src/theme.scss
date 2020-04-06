@@ -61,4 +61,7 @@ $CoronaUpdate-theme: mat-light-theme($CoronaUpdate-primary, $CoronaUpdate-accent
     &-green{
         color: mat-color(mat-palette($mat-green));
     }
+    &-purple{
+        color: mat-color(mat-palette($mat-purple));
+    }
 }

@@ -5,19 +5,12 @@
     <app-side-bar></app-side-bar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="parent-container">
-      <!-- <div class="mat-display-1 top-menu">
-
-        {{title}}
-        <div class="mat-flex-spacer"></div>
-        <a mat-button href="https://github.com/rajdeepiitkgp/CoronaUpdate">
-        <span class="small-text">
-          Github
-        </span>
-        </a>
-      </div> -->
-      <app-top-navbar></app-top-navbar>
-      <router-outlet></router-outlet>
+    <div class="parent-container">  
+      <app-top-navbar (emitOpenCloseSideBar)="openCloseSideBar($event)"></app-top-navbar>
+      <div class="child-container">
+        <router-outlet></router-outlet>
+      </div>    
+      <app-footer></app-footer>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

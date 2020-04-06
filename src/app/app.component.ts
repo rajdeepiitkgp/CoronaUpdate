@@ -19,4 +19,8 @@ export class AppComponent implements AfterContentChecked {
   ngAfterContentChecked(): void {
     this.cdr.detectChanges();
   }
+
+  public openCloseSideBar(e) {
+    console.log(e);
+  }
 }

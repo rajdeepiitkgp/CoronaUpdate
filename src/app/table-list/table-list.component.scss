@@ -37,7 +37,10 @@
         &-flag{
             width: 20px;
         }      
-        &-footer{  
+        &-footer{
+            &-hide{
+                display: none;
+            }   
             &-td{
                 height: 250px;
                 &.spinner-container{

@@ -48,7 +48,7 @@
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    <tr mat-footer-row *matFooterRowDef="['loading']"  [ngClass]="{'mobile-hide':(dataSource!==null)}" >
+                    <tr mat-footer-row *matFooterRowDef="['loading']"  [ngClass]="{'table-footer-hide':(dataSource!==null)}" >
                     </tr>
                 </table>
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
