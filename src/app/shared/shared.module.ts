@@ -16,6 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
 const materialModules = [
   MatSidenavModule,
@@ -29,7 +31,9 @@ const materialModules = [
   MatFormFieldModule,
   MatInputModule,
   MatPaginatorModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatTooltipModule,
+  MatSnackBarModule
 ];
 const nonMaterialModules = [
   FormsModule,
