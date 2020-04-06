@@ -1,6 +1,12 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChange } from '@angular/core';
-
-
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  OnChanges,
+  SimpleChange
+} from '@angular/core';
 
 @Component({
   selector: 'app-top-navbar',
@@ -13,7 +19,6 @@ export class TopNavbarComponent implements OnInit, OnChanges {
   @Output() emitOpenCloseSideBar: EventEmitter<any> = new EventEmitter();
   @Input() parentState: boolean;
   public iconTrigger = 'menu';
-  public state = '';
   constructor() { }
 
   ngOnInit(): void {

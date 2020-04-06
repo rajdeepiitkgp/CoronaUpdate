@@ -12,8 +12,7 @@
             <mat-icon svgIcon="gitHub" aria-hidden="false" aria-label="Github Repo"></mat-icon>
         </a>
         <button mat-icon-button color="primary" class="mobile-show" (click)="openSidebar()" matTooltip="Open Menu">
-            <mat-icon class="menu-btn-open"  *ngIf="sideBarClosed">menu</mat-icon>
-            <mat-icon class="menu-btn-closed"  *ngIf="!sideBarClosed">close</mat-icon>
+            <mat-icon class="animate">{{iconTrigger}}</mat-icon>
         </button>
     </mat-toolbar>
 </div>

@@ -44,7 +44,10 @@ $CoronaUpdate-theme: mat-light-theme($CoronaUpdate-primary, $CoronaUpdate-accent
     }
     &-light-blue{
         background-color: mat-color(mat-palette($mat-light-blue));
-        color: #fff;
+        color: #ffffff;
+    }
+    &-purple{
+        background-color: mat-color(mat-palette($mat-purple));
     }
     
 }
