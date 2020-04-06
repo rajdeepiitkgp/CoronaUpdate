@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChange } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-top-navbar',
   templateUrl: './top-navbar.component.html',
@@ -8,10 +9,11 @@ import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChange
 })
 export class TopNavbarComponent implements OnInit, OnChanges {
   public title = 'Dashboard';
-  private sideBarClosed: boolean;
+  public sideBarClosed: boolean;
   @Output() emitOpenCloseSideBar: EventEmitter<any> = new EventEmitter();
   @Input() parentState: boolean;
   public iconTrigger = 'menu';
+  public state = '';
   constructor() { }
 
   ngOnInit(): void {

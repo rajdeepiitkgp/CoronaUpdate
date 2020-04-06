@@ -2,13 +2,18 @@
     <mat-toolbar class="toolbar">
         <span class="mat-display-1 toolbar-brand">{{title}}</span>
         <span class="toolbar-spacer"></span>
-        <a mat-flat-button href="https://github.com/rajdeepiitkgp/CoronaUpdate" target="_blank" color="primary" class="mobile-hide" matTooltip="View Source on GitHub">
+        <a mat-flat-button href="https://github.com/rajdeepiitkgp/CoronaUpdate" target="_blank" color="primary"
+            class="mobile-hide" matTooltip="View Source on GitHub">
             <mat-icon svgIcon="gitHub" aria-hidden="false" aria-label="Github Repo" class="icon-space"></mat-icon>
             Github
         </a>
-        <a mat-mini-fab href="https://github.com/rajdeepiitkgp/CoronaUpdate" target="_blank" color="primary" class="mobile-show btn-space" matTooltip="View Source on GitHub">
+        <a mat-mini-fab href="https://github.com/rajdeepiitkgp/CoronaUpdate" target="_blank" color="primary"
+            class="mobile-show btn-space" matTooltip="View Source on GitHub">
             <mat-icon svgIcon="gitHub" aria-hidden="false" aria-label="Github Repo"></mat-icon>
         </a>
-        <button mat-icon-button color="primary" class="mobile-show" (click)="openSidebar()" matTooltip="Open Menu" > <mat-icon>{{iconTrigger}}</mat-icon></button>
+        <button mat-icon-button color="primary" class="mobile-show" (click)="openSidebar()" matTooltip="Open Menu">
+            <mat-icon class="menu-btn-open"  *ngIf="sideBarClosed">menu</mat-icon>
+            <mat-icon class="menu-btn-closed"  *ngIf="!sideBarClosed">close</mat-icon>
+        </button>
     </mat-toolbar>
 </div>

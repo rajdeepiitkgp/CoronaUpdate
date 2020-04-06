@@ -5,12 +5,14 @@ import { SummaryService } from '../service/summary.service';
 import { DatePipe } from '@angular/common';
 import { forkJoin, Subscription } from 'rxjs';
 import { GraphModel } from '../models/graph-model';
+import { moveIn } from '../shared/router-animation';
 
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  animations: [moveIn()]
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
@@ -25,7 +27,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public infectedModel: GraphModel = { ...DashboardConstants.demoCardModel };
   public deathModel: GraphModel = { ...DashboardConstants.demoCardModel };
   public dailyModel: GraphModel = { ...DashboardConstants.demoCardModel };
-
+  public state = '';
   constructor(
     private summarySrvc: SummaryService,
     private datePipe: DatePipe

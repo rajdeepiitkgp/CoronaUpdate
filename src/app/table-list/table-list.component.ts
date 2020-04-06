@@ -4,10 +4,12 @@ import { SummaryService } from '../service/summary.service';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { moveInLeft } from '../shared/router-animation';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.scss']
+  styleUrls: ['./table-list.component.scss'],
+  animations: [moveInLeft()]
 })
 export class TableListComponent implements OnInit, OnDestroy {
 
@@ -17,7 +19,7 @@ export class TableListComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   public displayedColumns: any[];
   public searchKey = '';
-
+  public state = '';
   constructor(
     private summarySrvc: SummaryService
   ) {

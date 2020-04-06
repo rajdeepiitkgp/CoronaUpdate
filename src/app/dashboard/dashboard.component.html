@@ -1,4 +1,4 @@
-<div class="summary-container">
+<div class="summary-container" [@moveIn]='state'>
     <div class="summary-content" *ngFor="let item of cardObjectArray">
         <app-card-summary [cardObject]="item"></app-card-summary>
     </div>
