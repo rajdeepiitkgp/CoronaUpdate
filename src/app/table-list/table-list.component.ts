@@ -4,7 +4,6 @@ import { SummaryService } from '../service/summary.service';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -13,14 +12,18 @@ import { MatSort } from '@angular/material/sort';
 export class TableListComponent implements OnInit, OnDestroy {
 
   public colDef = TableListConstants.colDef;
-  public dataSource: MatTableDataSource<TableData>;
+  public dataSource: MatTableDataSource<any> = null;
   private watcher: Subscription;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  public displayedColumns: any[];
+  public searchKey: string = null;
 
   constructor(
     private summarySrvc: SummaryService
-  ) { }
+  ) {
+    this.displayedColumns = this.colDef.map(t => t.headerName);
+    this.displayedColumns.splice(2, 0, 'flag');
+  }
 
 
   ngOnInit(): void {
@@ -31,7 +34,6 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.watcher.unsubscribe();
   }
 
-  public applyFilter(params) { }
 
   public initializeService() {
     this.watcher = this.summarySrvc.fetchCountryData().subscribe(result => {
@@ -40,9 +42,9 @@ export class TableListComponent implements OnInit, OnDestroy {
 
   }
   public prepareResultDisplay(result: any[]) {
-    const finalData: TableData[] = [];
+    const finalData = [];
     result.forEach((el, index) => {
-      const temp: TableData = {
+      const temp = {
         id: (index + 1),
         country: el.country,
         cases: this.formatNumber(el.cases as number),
@@ -55,23 +57,22 @@ export class TableListComponent implements OnInit, OnDestroy {
       };
       finalData.push(temp);
     });
-    console.log(finalData);
+    this.dataSource = new MatTableDataSource(finalData);
+    this.dataSource.paginator = this.paginator;
   }
   public formatNumber(value: number): string {
     const result = value.toLocaleString('en-us', { maximumFractionDigits: 2 });
     return result as string;
   }
 
+  public onSearchClear() {
+    this.searchKey = null;
+    this.applyFilter();
+  }
+
+  public applyFilter() {
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
+  }
+
 }
 
-export interface TableData {
-  id: number;
-  country: string;
-  cases: string;
-  todayCases: string;
-  deaths: string;
-  flag: string;
-  todayDeaths: string;
-  deathRate: string;
-  recovered: string;
-}

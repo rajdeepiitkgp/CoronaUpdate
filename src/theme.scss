@@ -28,18 +28,37 @@ $CoronaUpdate-theme: mat-light-theme($CoronaUpdate-primary, $CoronaUpdate-accent
 .mat-bg{
     &-red{
         background-color: mat-color(mat-palette($mat-red));
+        color: #fff;
     }
     &-orange{
         background-color: mat-color(mat-palette($mat-orange));
+        color: #fff;
     }
     &-green{
         background-color: mat-color(mat-palette($mat-green));
+        color: #fff;
     }
     &-gray{
         background-color: mat-color(mat-palette($mat-gray));
+        color: #fff;
     }
     &-light-blue{
         background-color: mat-color(mat-palette($mat-light-blue));
+        color: #fff;
     }
     
+}
+.mat-text{
+    &-light-blue{
+        color: mat-color(mat-palette($mat-light-blue));
+    }
+    &-orange{
+        color: mat-color(mat-palette($mat-orange));
+    }
+    &-red{
+        color: mat-color(mat-palette($mat-red));
+    }
+    &-green{
+        color: mat-color(mat-palette($mat-green));
+    }
 }
