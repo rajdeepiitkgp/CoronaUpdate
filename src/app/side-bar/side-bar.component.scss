@@ -3,7 +3,7 @@
     width: 240px;
     &::before{
         content: '';
-        background-image: url(/assets/sidebar-4.jpg);
+        background-image: url("../../assets/sidebar-4.jpg");
         position: absolute;
         opacity: 0.2;
         height: 100%;
