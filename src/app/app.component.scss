@@ -17,8 +17,12 @@
     position: fixed;
     z-index: 999;
 }
-@media (max-width: 768px){
-    .hide-sm{
-        display: none;
-    }
+.mat-flex-spacer{
+    flex-grow: 1;
+}
+.top-menu{
+    display: flex;
+}
+.small-text{
+    font-size: 14px !important;
 }

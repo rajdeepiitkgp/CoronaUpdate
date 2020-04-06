@@ -40,3 +40,17 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+
+@media (max-width:768px){
+    .custom-card{
+        margin: 20px 0px !important;
+    }
+    .mobile-hide{
+        display: none !important;
+    }
+}
+@media (min-width:769px){
+    .mobile-show{
+        display: none !important;
+    }
+}

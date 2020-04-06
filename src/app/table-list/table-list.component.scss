@@ -23,6 +23,7 @@
 }
 .custom-table{
     width: 100%;
+    overflow-x: auto;
     .table{
         &-title{
             font-weight: 400 !important;
@@ -36,10 +37,7 @@
         &-flag{
             width: 20px;
         }      
-        &-footer{
-            &-hide{
-                display: none;
-            }   
+        &-footer{  
             &-td{
                 height: 250px;
                 &.spinner-container{

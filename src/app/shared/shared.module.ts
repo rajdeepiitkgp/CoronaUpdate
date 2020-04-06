@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { CardSummaryComponent } from './card-summary/card-summary.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -15,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { DomSanitizer } from '@angular/platform-browser';
 const materialModules = [
   MatSidenavModule,
   MatDividerModule,
@@ -28,7 +29,7 @@ const materialModules = [
   MatFormFieldModule,
   MatInputModule,
   MatPaginatorModule,
-  MatSortModule
+  MatToolbarModule
 ];
 const nonMaterialModules = [
   FormsModule,
@@ -54,4 +55,8 @@ const components = [
     components
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('gitHub', sanitizer.bypassSecurityTrustResourceUrl('assets/github-transparent.svg'));
+  }
+}

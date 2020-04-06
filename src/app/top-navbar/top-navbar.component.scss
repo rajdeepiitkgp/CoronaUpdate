@@ -1,0 +1,24 @@
+.toolbar-container{
+    margin-bottom: 64px;
+    .toolbar{
+        background-color: inherit !important;
+        &-brand{
+            margin: 0 !important;
+        }
+        &-spacer{
+            flex: 1 1 auto;
+        }
+        @media (max-width:768px) {
+            &{
+                padding-right: 0 !important;
+            }
+            
+        }
+    }
+    .icon-space{
+        margin-right: 5px;
+    }
+    .btn-space{
+        margin-right: 10px;
+    }
+}

@@ -10,12 +10,14 @@ import { TableListComponent } from './table-list/table-list.component';
 import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './models/http-error-interceptor';
+import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     DashboardComponent,
-    TableListComponent
+    TableListComponent,
+    TopNavbarComponent
   ],
   imports: [
     BrowserModule,

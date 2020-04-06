@@ -1,14 +1,22 @@
 <mat-progress-bar *ngIf="progressFlag" mode="indeterminate" class="custom-progress-bar">
 </mat-progress-bar>
 <mat-sidenav-container class="corona-sidenav-container">
-  <mat-sidenav mode="side" opened class="mat-elevation-z4 hide-sm">
+  <mat-sidenav mode="side" opened class="mat-elevation-z4 mobile-hide">
     <app-side-bar></app-side-bar>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="parent-container">
-      <div class="mat-display-1">
+      <!-- <div class="mat-display-1 top-menu">
+
         {{title}}
-    </div>
+        <div class="mat-flex-spacer"></div>
+        <a mat-button href="https://github.com/rajdeepiitkgp/CoronaUpdate">
+        <span class="small-text">
+          Github
+        </span>
+        </a>
+      </div> -->
+      <app-top-navbar></app-top-navbar>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
