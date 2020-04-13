@@ -10,15 +10,13 @@ import {
 import { retry, catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { EventAggrigatorService } from '../service/event-aggrigator.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { NotificationComponent } from '../notification/notification.component';
+import { NotificationService } from '../service/notification.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-    private delay = 5000;
     constructor(
         private eventAggSrvc: EventAggrigatorService,
-        private snackBar: MatSnackBar
+        private notifySrvc: NotificationService
     ) { }
     public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.eventAggSrvc.setSpinnerFlag(true);
@@ -36,16 +34,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 } else {
                     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
                 }
-                this.eventAggSrvc.setSpinnerFlag(true);
-                setTimeout(() => {
-                    this.eventAggSrvc.setSpinnerFlag(false);
-                }, this.delay);
-                this.openSnackBar();
+                this.notifySrvc.openSnackBar();
                 return throwError(errorMessage);
             })
         );
     }
-    public openSnackBar() {
-        this.snackBar.openFromComponent(NotificationComponent, { panelClass: 'mat-bg-orange', duration: this.delay });
-    }
+
 }

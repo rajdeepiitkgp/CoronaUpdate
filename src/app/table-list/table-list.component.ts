@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { moveInLeft } from '../shared/router-animation';
+import { NotificationService } from '../service/notification.service';
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -21,7 +22,8 @@ export class TableListComponent implements OnInit, OnDestroy {
   public searchKey = '';
   public state = '';
   constructor(
-    private summarySrvc: SummaryService
+    private summarySrvc: SummaryService,
+    private notifySrvc: NotificationService
   ) {
     this.displayedColumns = this.colDef.map(t => t.headerName);
     this.displayedColumns.splice(2, 0, 'flag');
@@ -39,11 +41,22 @@ export class TableListComponent implements OnInit, OnDestroy {
 
   public initializeService() {
     this.watcher = this.summarySrvc.fetchCountryData().subscribe(result => {
-      this.prepareResultDisplay(result);
+      try {
+        this.prepareResultDisplay(result);
+      } catch (e) {
+        this.handleError();
+      }
     });
 
   }
   public prepareResultDisplay(result: any[]) {
+    result.sort((a, b) => {
+      let m = a.cases as number;
+      let n = b.cases as number;
+      m = (m !== null) ? m : 0;
+      n = (n !== null) ? n : 0;
+      return n - m;
+    });
     const finalData = [];
     result.forEach((el, index) => {
       const temp = {
@@ -63,7 +76,7 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.dataSource.paginator = this.paginator;
   }
   public formatNumber(value: number): string {
-    const result = value.toLocaleString('en-us', { maximumFractionDigits: 2 });
+    const result = (value !== null) ? value.toLocaleString('en-us', { maximumFractionDigits: 2 }) : '0';
     return result as string;
   }
 
@@ -76,5 +89,8 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
+  public handleError() {
+    this.notifySrvc.openSnackBar();
+  }
 }
 

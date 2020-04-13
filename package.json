@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "customBuild": "ng lint && ng build --prod || exit 1"
+    "customBuild": "ng lint && ng build --prod || exit 1",
+    "customDeploy": "ng lint && ng build --prod --base-href https://rajdeepiitkgp.github.io/CoronaUpdate/ && ngh -d dist/CoronaUpdate || exit 1"
   },
   "private": true,
   "dependencies": {

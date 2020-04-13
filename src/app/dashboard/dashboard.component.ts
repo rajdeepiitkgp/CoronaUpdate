@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { forkJoin, Subscription } from 'rxjs';
 import { GraphModel } from '../models/graph-model';
 import { moveIn } from '../shared/router-animation';
+import { NotificationService } from '../service/notification.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public state = '';
   constructor(
     private summarySrvc: SummaryService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private notifySrvc: NotificationService
   ) {
     this.setModels();
   }
@@ -48,8 +50,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     const dailyOrb = this.summarySrvc.fetchDailyData();
     this.dataLoaded = false;
     this.watcher = forkJoin([summaryOrb, dailyOrb]).subscribe(([summaryData, dailyData]) => {
-      this.processSummaryData(summaryData);
-      this.processDailyData(dailyData);
+      try {
+        this.processSummaryData(summaryData);
+        this.processDailyData(dailyData);
+      } catch (e) {
+        this.handleError();
+      }
+
       this.dataLoaded = true;
     });
 
@@ -122,5 +129,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.dailyModel.isHistogram = false;
     this.dailyModel.y1Title = 'Rate of change for infected people';
     this.dailyModel.y2Title = 'Rate of change for death people';
+  }
+  public handleError() {
+    this.notifySrvc.openSnackBar();
   }
 }
