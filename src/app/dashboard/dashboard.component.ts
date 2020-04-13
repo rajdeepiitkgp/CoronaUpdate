@@ -53,11 +53,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
       try {
         this.processSummaryData(summaryData);
         this.processDailyData(dailyData);
+        this.dataLoaded = true;
       } catch (e) {
         this.handleError();
       }
-
-      this.dataLoaded = true;
     });
 
   }
