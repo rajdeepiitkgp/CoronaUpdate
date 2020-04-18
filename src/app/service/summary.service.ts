@@ -12,7 +12,7 @@ export class SummaryService {
   ) { }
 
   public fetchSummaryData(): Observable<any> {
-    const serviceUrl = 'https://corona.lmao.ninja/all';
+    const serviceUrl = 'https://corona.lmao.ninja/v2/all';
     return this.http.get(serviceUrl);
   }
 
@@ -22,7 +22,7 @@ export class SummaryService {
   }
 
   public fetchCountryData(): Observable<any>{
-    const serviceUrl = 'https://corona.lmao.ninja/countries';
+    const serviceUrl = 'https://corona.lmao.ninja/v2/countries';
     return this.http.get(serviceUrl);
   }
 }
