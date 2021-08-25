@@ -3,13 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SummaryService {
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) {}
 
   public fetchSummaryData(): Observable<any> {
     const serviceUrl = 'https://corona.lmao.ninja/v2/all';
@@ -21,7 +18,7 @@ export class SummaryService {
     return this.http.get(serviceUrl);
   }
 
-  public fetchCountryData(): Observable<any>{
+  public fetchCountryData(): Observable<any> {
     const serviceUrl = 'https://corona.lmao.ninja/v2/countries';
     return this.http.get(serviceUrl);
   }

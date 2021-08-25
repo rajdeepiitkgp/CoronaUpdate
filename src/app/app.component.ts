@@ -6,18 +6,14 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterContentChecked, OnInit, OnDestroy {
   public progressFlag = false;
   public opened = false;
   private watcher: Subscription;
-  constructor(
-    private eventAggSrvc: EventAggrigatorService,
-    private cdr: ChangeDetectorRef,
-    private router: Router
-  ) {
-    this.eventAggSrvc.spinnerFlagChanged$.subscribe(value => {
+  constructor(private eventAggSrvc: EventAggrigatorService, private cdr: ChangeDetectorRef, private router: Router) {
+    this.eventAggSrvc.spinnerFlagChanged$.subscribe((value) => {
       this.progressFlag = value;
     });
   }

@@ -4,16 +4,12 @@ import { CardModel } from 'src/app/models/card-model';
 @Component({
   selector: 'app-card-summary',
   templateUrl: './card-summary.component.html',
-  styleUrls: ['./card-summary.component.scss']
+  styleUrls: ['./card-summary.component.scss'],
 })
 export class CardSummaryComponent implements OnInit {
-
   @Input() cardObject: CardModel;
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

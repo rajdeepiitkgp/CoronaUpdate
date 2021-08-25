@@ -8,16 +8,14 @@ import { GraphModel } from '../models/graph-model';
 import { moveIn } from '../shared/router-animation';
 import { NotificationService } from '../service/notification.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  animations: [moveIn()]
+  animations: [moveIn()],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-
-  public cardObjectArray: CardModel[] = DashboardConstants.cardObjectArray.map(status => ({ ...status }));
+  public cardObjectArray: CardModel[] = DashboardConstants.cardObjectArray.map((status) => ({ ...status }));
   private dateArray: string[] = [];
   private infected: number[] = [];
   private died: number[] = [];
@@ -32,7 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(
     private summarySrvc: SummaryService,
     private datePipe: DatePipe,
-    private notifySrvc: NotificationService
+    private notifySrvc: NotificationService,
   ) {
     this.setModels();
   }
@@ -58,7 +56,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.handleError();
       }
     });
-
   }
 
   public processSummaryData(result: any) {

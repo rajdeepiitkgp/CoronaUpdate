@@ -1,17 +1,9 @@
-import {
-  Component,
-  OnInit,
-  Output,
-  EventEmitter,
-  Input,
-  OnChanges,
-  SimpleChange
-} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-top-navbar',
   templateUrl: './top-navbar.component.html',
-  styleUrls: ['./top-navbar.component.scss']
+  styleUrls: ['./top-navbar.component.scss'],
 })
 export class TopNavbarComponent implements OnInit, OnChanges {
   public title = 'Dashboard';
@@ -19,7 +11,7 @@ export class TopNavbarComponent implements OnInit, OnChanges {
   @Output() emitOpenCloseSideBar: EventEmitter<any> = new EventEmitter();
   @Input() parentState: boolean;
   public iconTrigger = 'menu';
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.sideBarClosed = true;
@@ -37,7 +29,6 @@ export class TopNavbarComponent implements OnInit, OnChanges {
   }
 
   public setIcon() {
-    this.iconTrigger = (this.sideBarClosed) ? 'menu' : 'close';
+    this.iconTrigger = this.sideBarClosed ? 'menu' : 'close';
   }
 }
-

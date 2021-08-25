@@ -4,15 +4,11 @@ import { NotificationComponent } from '../notification/notification.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class NotificationService {
   private delay = 5000;
-  constructor(
-    private eventAggSrvc: EventAggrigatorService,
-    private snackBar: MatSnackBar
-  ) { }
+  constructor(private eventAggSrvc: EventAggrigatorService, private snackBar: MatSnackBar) {}
   public openSnackBar() {
     this.eventAggSrvc.setSpinnerFlag(true);
     setTimeout(() => {

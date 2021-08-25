@@ -33,31 +33,14 @@ const materialModules = [
   MatPaginatorModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 ];
-const nonMaterialModules = [
-  FormsModule,
-  ReactiveFormsModule,
-  NgxEchartsModule
-];
-const components = [
-  CardSummaryComponent,
-  GraphSummaryComponent
-];
+const nonMaterialModules = [FormsModule, ReactiveFormsModule, NgxEchartsModule];
+const components = [CardSummaryComponent, GraphSummaryComponent];
 @NgModule({
-  imports: [
-    CommonModule,
-    nonMaterialModules,
-    materialModules
-  ],
-  exports: [
-    nonMaterialModules,
-    materialModules,
-    components
-  ],
-  declarations: [
-    components
-  ]
+  imports: [CommonModule, nonMaterialModules, materialModules],
+  exports: [nonMaterialModules, materialModules, components],
+  declarations: [components],
 })
 export class SharedModule {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

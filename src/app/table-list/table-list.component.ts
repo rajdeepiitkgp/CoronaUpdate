@@ -10,10 +10,9 @@ import { NotificationService } from '../service/notification.service';
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.scss'],
-  animations: [moveInLeft()]
+  animations: [moveInLeft()],
 })
 export class TableListComponent implements OnInit, OnDestroy {
-
   public colDef = TableListConstants.colDef;
   public dataSource: MatTableDataSource<any> = null;
   private watcher: Subscription;
@@ -21,14 +20,10 @@ export class TableListComponent implements OnInit, OnDestroy {
   public displayedColumns: any[];
   public searchKey = '';
   public state = '';
-  constructor(
-    private summarySrvc: SummaryService,
-    private notifySrvc: NotificationService
-  ) {
-    this.displayedColumns = this.colDef.map(t => t.headerName);
+  constructor(private summarySrvc: SummaryService, private notifySrvc: NotificationService) {
+    this.displayedColumns = this.colDef.map((t) => t.headerName);
     this.displayedColumns.splice(2, 0, 'flag');
   }
-
 
   ngOnInit(): void {
     this.initializeService();
@@ -38,29 +33,27 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.watcher.unsubscribe();
   }
 
-
   public initializeService() {
-    this.watcher = this.summarySrvc.fetchCountryData().subscribe(result => {
+    this.watcher = this.summarySrvc.fetchCountryData().subscribe((result) => {
       try {
         this.prepareResultDisplay(result);
       } catch (e) {
         this.handleError();
       }
     });
-
   }
   public prepareResultDisplay(result: any[]) {
     result.sort((a, b) => {
       let m = a.cases as number;
       let n = b.cases as number;
-      m = (m !== null) ? m : 0;
-      n = (n !== null) ? n : 0;
+      m = m !== null ? m : 0;
+      n = n !== null ? n : 0;
       return n - m;
     });
     const finalData = [];
     result.forEach((el, index) => {
       const temp = {
-        id: (index + 1),
+        id: index + 1,
         country: el.country,
         cases: this.formatNumber(el.cases as number),
         todayCases: this.formatNumber(el.todayCases as number),
@@ -68,7 +61,7 @@ export class TableListComponent implements OnInit, OnDestroy {
         todayDeaths: this.formatNumber(el.todayDeaths as number),
         deathRate: this.formatNumber(100 * ((el.deaths as number) / (el.cases as number))) + '%',
         recovered: this.formatNumber(el.recovered as number),
-        flag: el.countryInfo.flag
+        flag: el.countryInfo.flag,
       };
       finalData.push(temp);
     });
@@ -76,7 +69,7 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.dataSource.paginator = this.paginator;
   }
   public formatNumber(value: number): string {
-    const result = (value !== null) ? value.toLocaleString('en-us', { maximumFractionDigits: 2 }) : '0';
+    const result = value !== null ? value.toLocaleString('en-us', { maximumFractionDigits: 2 }) : '0';
     return result as string;
   }
 
@@ -93,4 +86,3 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.notifySrvc.openSnackBar();
   }
 }
-
