@@ -1,4 +1,5 @@
 # CoronaUpdate
+[![git version](https://img.shields.io/github/v/release/rajdeepiitkgp/CoronaUpdate?color=lime%20green&label=GIT%20Release)](https://github.com/rajdeepiitkgp/CoronaUpdate) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/rajdeepiitkgp/CoronaUpdate.svg?branch=main)](https://travis-ci.com/rajdeepiitkgp/CoronaUpdate) 
 
 ## Deployment
 

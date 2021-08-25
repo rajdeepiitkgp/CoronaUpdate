@@ -14,6 +14,16 @@
     "postversion": "git push --follow-tags"
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajdeepiitkgp/CoronaUpdate.git"
+  },
+  "author": "Rajdeep Biswas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajdeepiitkgp/CoronaUpdate/issues"
+  },
+  "homepage": "https://github.com/rajdeepiitkgp/CoronaUpdate#readme",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.0",
