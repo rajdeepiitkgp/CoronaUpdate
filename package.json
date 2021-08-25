@@ -5,13 +5,25 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 -o",
     "build": "ng build",
+    "travisBuild": "ng build --prod --base-href /CoronaUpdate/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "customBuild": "ng lint && ng build --prod || exit 1",
-    "customDeploy": "ng lint && ng build --prod --base-href https://rajdeepiitkgp.github.io/CoronaUpdate/ && ngh -d dist/CoronaUpdate || exit 1"
+    "format": "prettier --write \"src/**/*.ts\"",
+    "version": "npm run format && git add -A",
+    "postversion": "git push --follow-tags"
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajdeepiitkgp/CoronaUpdate.git"
+  },
+  "author": "Rajdeep Biswas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajdeepiitkgp/CoronaUpdate/issues"
+  },
+  "homepage": "https://github.com/rajdeepiitkgp/CoronaUpdate#readme",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/cdk": "^9.2.0",
